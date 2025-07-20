@@ -1,0 +1,132 @@
+# 🐼 Panda Trucking Job System v2.1.0 (Clean Version)
+
+A comprehensive trucking job script for QBCore framework with XP-based progression, Wasabi CarLock integration, and enhanced in-game menu system.
+
+## ✨ Features
+
+- **🎯 XP-Based Progression**: 5-tier advancement system with automatic promotions
+- **🔒 Wasabi CarLock Security**: Automatic vehicle locking/unlocking
+- **📊 Statistics Tracking**: Comprehensive delivery and earnings tracking
+- **🎮 Enhanced Menu System**: Clean in-game job interface
+- **💰 Grade-based Payments**: Payment scales with experience level
+- **🚛 Dynamic Deliveries**: Multiple locations with varying rewards
+- **⚡ Performance Optimized**: Clean code without tablet dependencies
+
+## 📋 Requirements
+
+- **QBCore Framework** (Latest version)
+- **MySQL/OxMySQL** or **MySQL-Async**
+- **qb-menu** (for enhanced job interface)
+- **Wasabi CarLock** (optional but recommended)
+- **LegacyFuel** or similar fuel system (optional)
+
+## 🚀 Installation
+
+
+### 1. Database Setup
+Run the SQL file in your database to create required tables.
+
+### 3. QBCore Job Configuration
+Add to `qb-core/shared/jobs.lua`:
+```lua
+['trucker'] = {
+    label = 'Trucker',
+    defaultDuty = true,
+    offDutyPay = false,
+    grades = {
+        ['0'] = { name = 'Driver', payment = 50 },
+        ['1'] = { name = 'Experienced Driver', payment = 75 },
+        ['2'] = { name = 'Veteran Driver', payment = 100 },
+        ['3'] = { name = 'Senior Driver', payment = 125 },
+        ['4'] = { name = 'Supervisor', payment = 150, isboss = true },
+    },
+},
+4. Server Configuration
+Add to server.cfg:
+ensure panda_trucking
+5. Restart Server
+bashrestart qb-core
+restart panda_trucking
+🎮 How to Use
+For Players
+
+Get hired as a trucker by an admin or job center
+Go to the docks (job location on map)
+Press E at the job marker to open the menu
+Start job to spawn truck and trailer
+Attach trailer and drive to delivery location
+Complete delivery at the destination marker
+Earn XP and money based on performance
+
+Player Commands
+
+/truckxp - Check your XP progress
+/pandatruckversion - Check script version
+
+Admin Commands
+
+/addtruckxp [playerid] [amount] - Add XP to player
+/truckstats [playerid] - View player statistics
+/resettruckdata [playerid] - Reset player data
+
+📈 XP System
+Grade Progression
+GradeXP RequiredBase PaymentDriver0 XP$50Experienced Driver250 XP$75Veteran Driver750 XP$100Senior Driver1,500 XP$125Supervisor3,000 XP$150
+XP Rewards
+
+Base delivery: 15-35 XP
+Distance bonus: Up to 2x for long hauls
+Perfect delivery: +15 XP (no damage)
+Speed bonus: +10 XP (under 5 minutes)
+
+⚙️ Configuration
+Locations
+Customize job center, truck spawn, and delivery locations in config.lua
+Vehicles
+Add or modify available trucks and trailers
+Experience System
+Adjust XP requirements, bonuses, and multipliers
+Security
+Configure Wasabi CarLock integration settings
+🔧 Troubleshooting
+Common Issues
+
+No job marker: Check coordinates in config
+XP not saving: Verify MySQL connection
+Vehicles not spawning: Check for obstacles at spawn points
+Job not available: Ensure player has trucker job
+
+Debug Mode
+Set Config.Debug = true for detailed logging
+🎯 Features Included
+✅ XP-Based Progression System
+✅ Wasabi CarLock Security
+✅ Real-time Statistics Tracking
+✅ Admin Management Tools
+✅ Grade-based Payment System
+✅ Dynamic Delivery Routes
+✅ Enhanced Menu Interface
+✅ Version Checking System
+✅ Performance Optimized
+✅ Clean Dependencies
+📞 Support
+Check server console for error messages and ensure all dependencies are properly installed.
+
+🐼 Panda Trucking v2.1.0 - Professional Trucking Services
+No tablet dependencies - Pure QBCore integration
+
+---
+
+## 📁 **File Summary**
+
+This clean version includes:
+- ✅ **7 core files** (no tablet integration)
+- ✅ **Enhanced menu system** using qb-menu
+- ✅ **All XP and progression features**
+- ✅ **Wasabi CarLock integration**
+- ✅ **Clean dependencies** (no LB-Phone)
+- ✅ **Professional branding** with Panda theme
+- ✅ **Version checking system**
+- ✅ **Admin management tools**
+
+Simple installation with no complex tablet setup required!
